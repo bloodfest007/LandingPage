@@ -1,89 +1,128 @@
-body {
+/* 1️⃣ Reset general: quita márgenes y rellenos por defecto */
+*
+{
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #D9D6D0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0;
+    box-sizing: border-box; /* Hace que el padding y el borde no sumen al ancho total */
+
 }
 
-/* Contenedor común para centrar */
-header,
-main,
-footer {
-    width: 100%;
-    max-width: 800px; /* ancho máximo */
-    padding: 1rem;
-    box-sizing: border-box;
+/* 2️⃣ Base del documento */
+body
+{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, Helvetica  /*Fuente base*/;
+    background-color: #D9D6D0;      /*Fondo base*/
+    color: #333;                    /*Texto oscuro*/
+    line-height: 1.5;                 /*Altura de línea comoda, esto es un interlineado entre cada texto*/
+    
+    display: flex;                     /*Activamos flexbox*/
+    flex-direction: column;            /*Apila los elementos verticalmente*/
+    align-items: center;               /*Centra horizontalmente los elementos del body (main, header, footer)*/
+    padding: 1rem;                     /*Espacio alrededor*/
 }
 
-/* Estilo de header */
-header {
-    text-align: center;
-    background-color: #fff;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    margin: 1rem 0;
-    padding: 2rem 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* Contenedor principal */
+
+
+/* Limitamos el ancho del contenido */
+main, header, footer
+{
+    width: 100%;                        /* Ocupa todo el ancho disponible */
+    max-width: 800px;
+    margin: 0 auto;       
+    text-align: center;                  /*Alinea texto */
 }
 
-header .logo {
-    width: 15rem;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
+/*Estilo de las cajas*/
+section
+{
+    background-color: #fff;           /* Fondo blanco */
+    border: 2px, solid #ccc;          /* Borde gris suave */  
+    border-radius: 10px;                /* Esquinas redondeadas */
+    padding: 1rem;                      /* Espacio dentro de la caja */
+    margin: 1rem;                       /* Separación vertical entre cajas */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra sutil, a es alpha asociado a la sombra */
 }
 
-/* Estilo de secciones */
-section {
-    border: 2px solid #ccc;
-    padding: 1rem;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin: 1rem 0;
-    text-align: center;
-}
+/*Botones que comiencen por el prefijo btn-- se llaman o se selecciona para añadir atributos*/
 
-/* Botones */
-a[class^="btn--"] {
+a[class^="btn--"]
+{
     display: inline-block;
-    padding: 0.75rem 1.25rem;
-    margin: 0.5rem 0;
-    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
     color: white;
+    margin:0.5rem;
+
 }
 
-.btn--whatsapp {
+.btn--whatsapp
+{
     background-color: #25D366;
+
 }
 
-.btn--instagram {
+.btn--instagram
+{
     background-color: #E1306C;
+
 }
 
-.btn--facebook {
+.btn--facebook
+{
     background-color: #1877F2;
+
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background-color: #fff;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    margin: 1rem 0;
+.btn--email
+{
+    background-color: #333;
+}
+
+/*Área responsiva aquí*/
+
+/* Para todos los bloques , Esto hace que en móvil las cajas se hagan más angostas y en PC se mantengan centradas.*/
+header, main, footer, section
+{
+    width:90%;                  /* Ocupa casi todo el ancho de la pantalla en móvil */
+    max-width: 800px;           /* Pero no más de 800px en pantallas grandes */
+    margin: 1rem auto;          /* Centrado horizontal y espacio vertical */
     padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
 }
 
-/* RESPONSIVO */
-@media (max-width: 480px) {
-    a[class^="btn--"] {
-        width: 100%;
-        text-align: center;
-    }
+/*Así el logo se reduce automáticamente en pantallas pequeñas*/
+header .logo
+{
+    max-width: 100%;            /* Nunca sobrepasa el ancho del contenedor */
+    height: auto;               /* Mantén la relación de aspecto original */
+    display:block;
+    margin: 0 auto 1rem auto;
+}
+
+h2
+{
+    font-size: 1.5rem;
+}
+
+p
+{
+    font-size: 1rem;
+
+}
+/*Esto mantiene todo legible sin desbordar la pantalla.*/
+/*Ajustes con media queries*/
+
+@media (max-width: 500px)
+{
+    h2{font-size: 1.2rem;}
+    p{font-size: 0.9rem;}
+}
+
+/*Botones que no se salgan del contenedor*/
+a[class^="btn--"] {
+    width: 100%;           /* Botones ocupan todo el ancho disponible en móvil */
+    max-width: 200px;      /* Pero no demasiado grandes en PC */
 }
