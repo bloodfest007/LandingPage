@@ -38,7 +38,7 @@ header, main, footer, section {
     padding: 1rem;
     text-align: center;
     background-color: var(--box-color);
-    border: 2px solid var(--border-color);
+    border: 0.5px solid var(--border-color);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -96,6 +96,11 @@ p {
 
 .btn--facebook {
     background-color: var(--btn-facebook);
+}
+
+.btn i {
+    margin-right: 8px;  /* Espacio entre ícono y texto */
+    font-size: 1.2rem;  /* Tamaño del ícono */
 }
 
 /* Responsive */
